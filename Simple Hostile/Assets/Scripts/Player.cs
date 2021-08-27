@@ -246,7 +246,8 @@ namespace sandy619
             //Jumping
             if (isJumping)
             {
-                if(crouched) photonView.RPC("SetCrouch", RpcTarget.All, false);
+                FindObjectOfType<AudioManager>().Play("Jump");
+                if (crouched) photonView.RPC("SetCrouch", RpcTarget.All, false);
                 rig.AddForce(Vector3.up * jumpForce);
                 current_recovery = 0f;
             }

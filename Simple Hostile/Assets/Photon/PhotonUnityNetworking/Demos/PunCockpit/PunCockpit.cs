@@ -338,7 +338,9 @@ namespace Photon.Pun.Demo.Cockpit
 			_regionPingProcessActive = true;
 			if (debug)	Debug.Log("PunCockpit:PingRegions:ConnectToNameServer");
 
-			_lbc = new LoadBalancingClient (PhotonNetwork.NetworkingClient.ExpectedProtocol);
+
+            _lbc = new LoadBalancingClient();
+            
 			_lbc.AddCallbackTarget(this);
 
 
@@ -431,11 +433,14 @@ namespace Photon.Pun.Demo.Cockpit
             PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() { { "C0", value } });
         }
 
+        private string roomNameToEnter;
+
         public void JoinRoom(string roomName)
         {
             this.RoomListManager.ResetList();
             this.LobbyPanel.gameObject.SetActive(false);
             this.ConnectingLabel.SetActive(true);
+            this.roomNameToEnter = roomName;
             PhotonNetwork.JoinRoom(roomName);
         }
 
@@ -742,6 +747,20 @@ namespace Photon.Pun.Demo.Cockpit
 
             this.PlayerDetailsManager.SetPlayerTarget(PhotonNetwork.LocalPlayer);
 
+        }
+
+        public override void OnJoinRoomFailed(short returnCode, string message)
+        {
+            switch (returnCode)
+            {
+                case ErrorCode.JoinFailedFoundInactiveJoiner:
+                    if (!string.IsNullOrEmpty(this.roomNameToEnter))
+                    {
+                        PhotonNetwork.RejoinRoom(this.roomNameToEnter);
+                        this.roomNameToEnter = null;
+                    }
+                    break;
+            }
         }
 
         public override void OnLeftRoom()

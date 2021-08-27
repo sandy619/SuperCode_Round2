@@ -14,20 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppSettings:
     AppIdRealtime: 53f760ce-4238-4e1d-97d0-8746b49fad75
+    AppIdFusion: 
     AppIdChat: 53f760ce-4238-4e1d-97d0-8746b49fad75
-    AppIdVoice: 
+    AppIdVoice: 5b762159-b5d0-4cae-9802-7c36bef32c2a
     AppVersion: 1.0
     UseNameServer: 1
     FixedRegion: 
     Server: 
     Port: 0
+    ProxyServer: 
     Protocol: 0
+    EnableProtocolFallback: 1
+    AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  StartInOfflineMode: 0
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
+  StartInOfflineMode: 0
   RpcList:
   - DestroySpaceship
   - Disable
@@ -42,5 +47,11 @@ MonoBehaviour:
   - SyncTeam
   - TakeDamage
   - playerDisable
+  - CantHearYou
+  - ChangeColour
+  - ClickRpc
+  - DestroyRpc
+  - HeresWhy
   DisableAutoOpenWizard: 1
   ShowSettings: 1
+  DevRegionSetOnce: 0

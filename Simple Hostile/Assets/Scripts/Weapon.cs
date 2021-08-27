@@ -282,7 +282,8 @@ namespace sandy619
             sfx.clip = currentGunData.gunshotSound;
             sfx.pitch = 1 - currentGunData.pitchRandomization + Random.Range(-currentGunData.pitchRandomization, currentGunData.pitchRandomization);
             sfx.volume = currentGunData.shotVolume;
-            sfx.Play();
+            //sfx.Play();
+            FindObjectOfType<AudioManager>().Play("Shoot");
             Debug.Log("PLAY SOUND " + currentGunData.gunshotSound.name);
 
             //gun fx

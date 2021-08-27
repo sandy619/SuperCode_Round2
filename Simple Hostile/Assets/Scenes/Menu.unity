@@ -1608,6 +1608,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457593047}
   m_CullTransparentMesh: 0
+--- !u!1 &480845336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480845338}
+  - component: {fileID: 480845337}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &480845337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480845336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89b7403e20758a409e2ba3585e91d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - Name: Theme
+    Clip: {fileID: 8300000, guid: cbdbe8c8c685aac43ae016ea47c0fa74, type: 3}
+    looping: 1
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+  - Name: Jump
+    Clip: {fileID: 8300000, guid: d1dacd0c784eae74580312782fad1e2b, type: 3}
+    looping: 0
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+  - Name: Shoot
+    Clip: {fileID: 8300000, guid: c4dd4347a81e00c4a83fddaccabe9c4f, type: 3}
+    looping: 0
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+  - Name: Relaod
+    Clip: {fileID: 8300000, guid: c670564ac48145f4b88ad58e225cef05, type: 3}
+    looping: 0
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+--- !u!4 &480845338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480845336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 478.7696, y: 260.89432, z: -88.77603}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498215501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,7 +2781,7 @@ RectTransform:
   m_GameObject: {fileID: 641757908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7883, y: 1.7883, z: 1.7883}
   m_Children:
   - {fileID: 1926696960}
   - {fileID: 1505309338}
@@ -2723,7 +2791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -21.426, y: -2.9522}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &647760041
@@ -5747,8 +5815,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926696959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2916687, y: 26.269615, z: 0}
-  m_LocalScale: {x: 1.70347, y: 1.70347, z: 1.70347}
+  m_LocalPosition: {x: -2.2147, y: 24, z: 0}
+  m_LocalScale: {x: 1.822713, y: 1.822713, z: 1.822713}
   m_Children:
   - {fileID: 579433809}
   - {fileID: 1878566071}
