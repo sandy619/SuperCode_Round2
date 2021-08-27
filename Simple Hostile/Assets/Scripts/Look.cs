@@ -11,6 +11,8 @@ namespace sandy619
 
         public static bool cursorLocked = true;
 
+        public Vector2 LookAxis; //mine
+
         public Transform player;
         public Transform normalCam;
         public Transform weaponCam;
@@ -50,7 +52,8 @@ namespace sandy619
 
         void SetY()
         {
-            float t_input = Input.GetAxis("Mouse Y") * ySensitivity * Time.deltaTime;
+            //float t_input = Input.GetAxis("Mouse Y") * ySensitivity * Time.deltaTime;
+            float t_input = LookAxis.y * ySensitivity * Time.deltaTime;
             Quaternion t_adj = Quaternion.AngleAxis(t_input, -Vector3.right);
             Quaternion t_delta = normalCam.localRotation * t_adj;
 
@@ -64,7 +67,8 @@ namespace sandy619
 
         void SetX()
         {
-            float t_input = Input.GetAxis("Mouse X") * xSensitivity * Time.deltaTime;
+            //float t_input = Input.GetAxis("Mouse X") * xSensitivity * Time.deltaTime;
+            float t_input= LookAxis.x * ySensitivity * Time.deltaTime;
             Quaternion t_adj = Quaternion.AngleAxis(t_input, Vector3.up);
             Quaternion t_delta = player.localRotation * t_adj;
             player.localRotation = t_delta;

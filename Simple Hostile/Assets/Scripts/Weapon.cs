@@ -10,6 +10,8 @@ namespace sandy619
     {
         #region Variables
 
+        public bool Fire;//mine
+
         public List<Gun> loadout;
         [HideInInspector] public Gun currentGunData;
 
@@ -58,7 +60,7 @@ namespace sandy619
                 {
                     if (loadout[currentIndex].burst != 1)
                     {
-                        if (Input.GetMouseButtonDown(0) && currentCooldown <= 0)
+                        if (Fire && currentCooldown <= 0)
                         {
                             if (loadout[currentIndex].FireBullet()) photonView.RPC("Shoot", RpcTarget.All);
                             else StartCoroutine(Reload(loadout[currentIndex].reload));
@@ -66,7 +68,7 @@ namespace sandy619
                     }
                     else
                     {
-                        if (Input.GetMouseButton(0) && currentCooldown <= 0)
+                        if (Fire && currentCooldown <= 0)
                         {
                             if (loadout[currentIndex].FireBullet()) photonView.RPC("Shoot", RpcTarget.All);
                             else StartCoroutine(Reload(loadout[currentIndex].reload));

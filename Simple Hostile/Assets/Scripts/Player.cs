@@ -11,6 +11,11 @@ namespace sandy619
     {
 
         #region Variables
+        //mine
+        public Vector2 RunAxis;
+        public bool jumping;
+        public bool SPRINT;
+        //end
 
         public float speed;
         public float sprintModifier;
@@ -187,13 +192,18 @@ namespace sandy619
             }
 
             //Axles
-            float t_hmove = Input.GetAxisRaw("Horizontal");
-            float t_vmove = Input.GetAxisRaw("Vertical");
+            //float t_hmove = Input.GetAxisRaw("Horizontal");
+            //float t_vmove = Input.GetAxisRaw("Vertical");
+
+            float t_hmove = RunAxis.x; //mob
+            float t_vmove = RunAxis.y; //mob
 
 
             //Controls
-            bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            bool jump = Input.GetKeyDown(KeyCode.Space);
+            //bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            bool sprint = SPRINT; //MOB
+            //bool jump = Input.GetKeyDown(KeyCode.Space);
+            bool jump = jumping; //MOB
             bool crouch = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
             bool pause = Input.GetKeyDown(KeyCode.Escape);
 
@@ -298,13 +308,16 @@ namespace sandy619
             if (!photonView.IsMine) return;
 
             //Axles
-            float t_hmove = Input.GetAxisRaw("Horizontal");
-            float t_vmove = Input.GetAxisRaw("Vertical");
-
+            //float t_hmove = Input.GetAxisRaw("Horizontal");
+            //float t_vmove = Input.GetAxisRaw("Vertical");
+            float t_hmove = RunAxis.x; //mob
+            float t_vmove = RunAxis.y; //mob
 
             //Controls
-            bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            bool jump = Input.GetKeyDown(KeyCode.Space);
+            //bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            bool sprint = SPRINT;
+            //bool jump = Input.GetKeyDown(KeyCode.Space);
+            bool jump = jumping;
             bool slide = Input.GetKey(KeyCode.LeftControl);
             bool aim = Input.GetMouseButton(1);
             bool jet = Input.GetKey(KeyCode.Space);
@@ -458,8 +471,8 @@ namespace sandy619
                 t_anim_vertical = t_direction.z;
             }
 
-            anim.SetFloat("Horizontal", t_anim_horizontal);
-            anim.SetFloat("Vertical", t_anim_vertical);
+            //anim.SetFloat("Horizontal", t_anim_horizontal);
+            //anim.SetFloat("Vertical", t_anim_vertical);
         }
 
         private void LateUpdate()
@@ -567,7 +580,11 @@ namespace sandy619
 
                 if(current_health <= 0)
                 {
-                    manager.Spawn();
+                    manager.mapcam.SetActive(true);
+
+                    //manager.Spawn();
+                    photonView.RPC("playerDisable", RpcTarget.All);
+                    Invoke(nameof(Respawn),5f);
                     manager.ChangeStat_S(PhotonNetwork.LocalPlayer.ActorNumber, 1, 1);
 
                     if (p_actor >= 0)
@@ -577,6 +594,18 @@ namespace sandy619
                 }
             }
         }
+        public void Respawn()
+        {
+            manager.mapcam.SetActive(false);
+            manager.Spawn();
+        }
+
+        [PunRPC] void playerDisable()
+        {
+            gameObject.SetActive(false);
+        }
+
+        
 
         #endregion
     }

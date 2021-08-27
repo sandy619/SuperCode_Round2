@@ -1446,6 +1446,7 @@ GameObject:
   - component: {fileID: 4508420415334297849}
   - component: {fileID: -7790962166202250427}
   - component: {fileID: 8205173740431224683}
+  - component: {fileID: -1259211158008201145}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1501,6 +1502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a874f142f66fa4ba3fccf9b1c9bb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RunAxis: {x: 0, y: 0}
+  jumping: 0
+  SPRINT: 0
   speed: 200
   sprintModifier: 2
   crouchModifier: 0.5
@@ -1545,6 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96ad5b6504821e4a897f8ff875932e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LookAxis: {x: 0, y: 0}
   player: {fileID: 9087296975448369944}
   normalCam: {fileID: 9087296974207401430}
   weaponCam: {fileID: 5599897311065195082}
@@ -1564,6 +1569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfc503a25f67f341ab8a5d171576157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fire: 0
   loadout:
   - {fileID: 11400000, guid: 5a294cca40bb63e49a0237c4aa1fab6f, type: 2}
   currentGunData: {fileID: 0}
@@ -1676,6 +1682,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1259211158008201145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087296975448369940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a234b81e474da2408c3e3c767a995fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpButton: {fileID: 0}
+  FireButton: {fileID: 0}
+  SprintButton: {fileID: 0}
+  TouchField: {fileID: 0}
 --- !u!1 &9087296975860955052
 GameObject:
   m_ObjectHideFlags: 0
